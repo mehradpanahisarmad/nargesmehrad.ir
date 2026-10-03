@@ -5,10 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>عروسی نرگس و مهراد</title>
     
-    <!-- فونت اصلی و فونت نستعلیق -->
+    <!-- فونت اصلی (وزیرمتن) -->
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap" rel="stylesheet">
-    <!-- فونت نستعلیق آنلاین (در صورت پشتیبانی مرورگر) -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
         /* تنظیمات کلی */
@@ -67,21 +65,21 @@
             font-size: 0.8em;
             color: #888;
         }
-        /* عکس */
-        img {
+        /* عکس اصلی */
+        .couple-photo {
             max-width: 100%;
             border-radius: 12px;
             margin: 20px 0;
             border: 3px solid #eaddcf;
         }
-        /* شعر - استفاده از فونت نستعلیق */
-        .poem {
-            font-family: 'Noto Nastaliq Urdu', 'IranNastaliq', 'Nastaliq', Tahoma, serif;
-            font-style: normal;
-            color: #8b6b4a;
-            margin: 30px 0;
-            font-size: 1.4em;
-            line-height: 2.8;
+        /* تصویر تایپوگرافی (شعر) */
+        .typography-image {
+            max-width: 90%;
+            height: auto;
+            border: none;
+            box-shadow: none;
+            margin: 30px auto;
+            display: block;
         }
         /* متن دعوت‌نامه */
         .invitation-text {
@@ -159,14 +157,11 @@
         <div><span id="seconds">0</span><small>ثانیه</small></div>
     </div>
 
-    <!-- عکس -->
-    <img src="couple.jpg" alt="عکس نرگس و مهراد">
+    <!-- عکس اصلی -->
+    <img src="couple.jpg" alt="عکس نرگس و مهراد" class="couple-photo">
 
-    <!-- شعر با فونت نستعلیق -->
-    <div class="poem">
-        از صدای سخن عشق ندیدم خوشتر<br>
-        یادگاری که در این گنبد دوار بماند
-    </div>
+    <!-- شعر به صورت تصویر تایپوگرافی -->
+    <img src="typography.png" alt="شعر عروسی" class="typography-image">
 
     <!-- متن دعوت‌نامه -->
     <p class="invitation-text">
