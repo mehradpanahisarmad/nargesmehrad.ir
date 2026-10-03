@@ -41,10 +41,10 @@
             margin: 10px 0 20px 0;
             font-weight: 700;
         }
-        /* تایمر شمارش معکوس - اصلاح نهایی برای ترتیب چپ به راست */
+        /* تایمر شمارش معکوس - اصلاح نهایی */
         #countdown {
             display: flex;
-            flex-direction: row-reverse; /* این خط ترتیب را برای RTL اصلاح می‌کند */
+            flex-direction: row; /* ترتیب عادی */
             justify-content: center;
             gap: 15px;
             margin: 30px 0;
@@ -151,7 +151,7 @@
     
     <h1>نرگس و مهراد</h1>
 
-    <!-- تایمر شمارش معکوس -->
+    <!-- تایمر شمارش معکوس - ترتیب از چپ به راست: روز، ساعت، دقیقه، ثانیه -->
     <div id="countdown">
         <div><span id="days">0</span><small>روز</small></div>
         <div><span id="hours">0</span><small>ساعت</small></div>
