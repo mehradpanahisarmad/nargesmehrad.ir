@@ -4,8 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>عروسی نرگس و مهراد</title>
-    <!-- اضافه کردن فونت زیبای فارسی -->
+    
+    <!-- فونت اصلی و فونت نستعلیق -->
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- فونت نستعلیق آنلاین (در صورت پشتیبانی مرورگر) -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+    
     <style>
         /* تنظیمات کلی */
         body {
@@ -70,13 +74,14 @@
             margin: 20px 0;
             border: 3px solid #eaddcf;
         }
-        /* شعر */
+        /* شعر - استفاده از فونت نستعلیق */
         .poem {
-            font-style: italic;
+            font-family: 'Noto Nastaliq Urdu', 'IranNastaliq', 'Nastaliq', Tahoma, serif;
+            font-style: normal;
             color: #8b6b4a;
-            margin: 20px 0;
-            font-size: 1.1em;
-            line-height: 2.2;
+            margin: 30px 0;
+            font-size: 1.4em;
+            line-height: 2.8;
         }
         /* متن دعوت‌نامه */
         .invitation-text {
@@ -146,7 +151,7 @@
     
     <h1>نرگس و مهراد</h1>
 
-    <!-- تایمر شمارش معکوس -->
+    <!-- تایمر شمارش معکوس: ترتیب روز، ساعت، دقیقه، ثانیه -->
     <div id="countdown">
         <div><span id="days">0</span><small>روز</small></div>
         <div><span id="hours">0</span><small>ساعت</small></div>
@@ -157,7 +162,7 @@
     <!-- عکس -->
     <img src="couple.jpg" alt="عکس نرگس و مهراد">
 
-    <!-- شعر -->
+    <!-- شعر با فونت نستعلیق -->
     <div class="poem">
         از صدای سخن عشق ندیدم خوشتر<br>
         یادگاری که در این گنبد دوار بماند
@@ -207,7 +212,6 @@
 <!-- اسکریپت تایمر شمارش معکوس -->
 <script>
     // تاریخ عروسی: 30 مهر 1405 ساعت 19:00 به وقت تهران
-    // معادل میلادی: 22 اکتبر 2026
     const weddingDate = new Date("2026-10-22T19:00:00+03:30").getTime();
 
     const timer = setInterval(function() {
