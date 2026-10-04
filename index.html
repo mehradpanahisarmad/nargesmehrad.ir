@@ -41,16 +41,16 @@
             margin: 10px 0 20px 0;
             font-weight: 700;
         }
-        /* تایمر شمارش معکوس - اصلاح نهایی */
+        /* تایمر شمارش معکوس */
         #countdown {
             display: flex;
-            flex-direction: row; /* ترتیب عادی */
+            flex-direction: row;
             justify-content: center;
             gap: 15px;
             margin: 30px 0;
             font-weight: 700;
             color: #b8860b;
-            direction: ltr; /* اجبار به چپ به راست */
+            direction: ltr; /* ترتیب چپ به راست */
         }
         #countdown div {
             background: #fdfaf6;
@@ -88,6 +88,16 @@
             font-size: 1.1em;
             margin: 20px 0;
             color: #555;
+        }
+        /* تاریخ و مکان */
+        .event-details {
+            font-size: 1.1em;
+            margin: 30px 0;
+            color: #555;
+            line-height: 2.2;
+        }
+        .event-details strong {
+            color: #b8860b;
         }
         .families {
             font-size: 1.2em;
@@ -151,7 +161,7 @@
     
     <h1>نرگس و مهراد</h1>
 
-    <!-- تایمر شمارش معکوس - ترتیب از چپ به راست: روز، ساعت، دقیقه، ثانیه -->
+    <!-- تایمر شمارش معکوس -->
     <div id="countdown">
         <div><span id="days">0</span><small>روز</small></div>
         <div><span id="hours">0</span><small>ساعت</small></div>
@@ -170,8 +180,14 @@
         رونق بهاری ترین ثانیه های زندگی ما باشید تا لطف حضور شما شادیمان را افزون کند.
     </p>
 
+    <!-- تاریخ و مکان -->
+    <div class="event-details">
+        <p><strong>زمان:</strong> ۳۰ مهر ۱۴۰۵، ساعت ۱۹:۰۰</p>
+        <p><strong>مکان:</strong> تالار پذیرایی داریوش</p>
+        <p><strong>آدرس:</strong> تهرانپارس - انتهای بلوار پروین - بلوار شاهد - نرسیده به خیابان دماوند لاین کند رو</p>
+    </div>
+
     <!-- موسیقی -->
-    <p style="font-size: 0.9em; color: #888; margin-top: 20px;">🎵 آهنگ تانگوی ما را بشنوید</p>
     <audio controls>
         <source src="tango.mp3" type="audio/mpeg">
         مرورگر شما از پخش صدا پشتیبانی نمی‌کند.
