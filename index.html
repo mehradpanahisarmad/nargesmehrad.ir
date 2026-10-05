@@ -206,10 +206,10 @@
 
     <!-- تایمر شمارش معکوس -->
     <div id="countdown">
-        <div><span id="days">0</span><small>روز</small></div>
-        <div><span id="hours">0</span><small>ساعت</small></div>
-        <div><span id="minutes">0</span><small>دقیقه</small></div>
-        <div><span id="seconds">0</span><small>ثانیه</small></div>
+        <div><span id="days">۰</span><small>روز</small></div>
+        <div><span id="hours">۰</span><small>ساعت</small></div>
+        <div><span id="minutes">۰</span><small>دقیقه</small></div>
+        <div><span id="seconds">۰</span><small>ثانیه</small></div>
     </div>
 
     <!-- عکس اصلی -->
@@ -267,6 +267,11 @@
 
 <script>
     // --- بخش اول: تایمر شمارش معکوس ---
+    // تبدیل اعداد انگلیسی به اعداد فارسی
+    function toFa(n) {
+        return String(n).replace(/\d/g, function (d) { return "۰۱۲۳۴۵۶۷۸۹"[d]; });
+    }
+
     const weddingDate = new Date("2026-10-22T19:00:00+03:30").getTime();
 
     const timer = setInterval(function () {
@@ -284,10 +289,10 @@
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        document.getElementById("days").innerText = days;
-        document.getElementById("hours").innerText = hours;
-        document.getElementById("minutes").innerText = minutes;
-        document.getElementById("seconds").innerText = seconds;
+        document.getElementById("days").innerText = toFa(days);
+        document.getElementById("hours").innerText = toFa(hours);
+        document.getElementById("minutes").innerText = toFa(minutes);
+        document.getElementById("seconds").innerText = toFa(seconds);
     }, 1000);
 
     // --- بخش دوم: پخش موسیقی با لمس صفحه پوشش ---
