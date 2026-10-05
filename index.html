@@ -31,10 +31,10 @@
         }
         /* تیتر و اسم‌ها */
         .bismillah-image {
-            max-width: 40%; /* برای بزرگتر یا کوچکتر کردن، این عدد را کم و زیاد کنید */
-            height: auto;   /* این خط نسبت تصویر را حفظ می‌کند */
+            max-width: 40%;
+            height: auto;
             display: block;
-            margin: 0 auto 20px auto; /* وسط‌چین کردن */
+            margin: 0 auto 20px auto;
             border: none;
             box-shadow: none;
         }
@@ -191,8 +191,8 @@
         <p><strong>آدرس:</strong> تهرانپارس - انتهای بلوار پروین - بلوار شاهد - نرسیده به خیابان دماوند لاین کند رو</p>
     </div>
 
-    <!-- موسیقی -->
-    <audio controls>
+    <!-- موسیقی با autoplay و loop -->
+    <audio id="weddingMusic" controls autoplay loop>
         <source src="tango.mp3" type="audio/mpeg">
         مرورگر شما از پخش صدا پشتیبانی نمی‌کند.
     </audio>
@@ -226,9 +226,9 @@
 
 </div>
 
-<!-- اسکریپت تایمر شمارش معکوس -->
+<!-- اسکریپت تایمر شمارش معکوس و پخش خودکار موسیقی -->
 <script>
-    // تاریخ عروسی: 30 مهر 1405 ساعت 19:00 به وقت تهران
+    // --- بخش اول: تایمر شمارش معکوس ---
     const weddingDate = new Date("2026-10-22T19:00:00+03:30").getTime();
 
     const timer = setInterval(function() {
@@ -251,6 +251,25 @@
         document.getElementById("minutes").innerText = minutes;
         document.getElementById("seconds").innerText = seconds;
     }, 1000);
+
+    // --- بخش دوم: تلاش برای پخش خودکار موسیقی ---
+    const audio = document.getElementById("weddingMusic");
+    
+    // تلاش اول: پخش فوری
+    audio.play().catch(function(error) {
+        console.log("پخش خودکار توسط مرورگر مسدود شد. در انتظار اولین لمس کاربر...");
+        
+        // تلاش دوم: اگر مرورگر اجازه نداد، با اولین لمس/کلیک کاربر پخش شود
+        const playOnInteraction = function() {
+            audio.play();
+            // حذف شنونده‌ها بعد از اولین پخش
+            document.removeEventListener('click', playOnInteraction);
+            document.removeEventListener('touchstart', playOnInteraction);
+        };
+        
+        document.addEventListener('click', playOnInteraction);
+        document.addEventListener('touchstart', playOnInteraction);
+    });
 </script>
 
 </body>
