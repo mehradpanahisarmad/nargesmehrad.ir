@@ -29,7 +29,7 @@
             z-index: -1;
             /* عدد اول و دوم (۰.۴۵ و ۰.۶۵) میزان تیرگی روی عکس است؛ برای روشن‌تر شدن عکس کمتر کنید */
             background:
-                linear-gradient(rgba(10,8,6,0.5), rgba(10,8,6,0.25)),
+                linear-gradient(rgba(10,8,6,0.45), rgba(10,8,6,0.65)),
                 url('wallpaper.jpg') center / cover no-repeat;
         }
 
@@ -42,7 +42,7 @@
 
         /* تیتر و اسم‌ها */
         .bismillah-image {
-            max-width: 40%;
+            max-width: 30%;
             height: auto;
             display: block;
             margin: 0 auto 20px auto;
@@ -86,13 +86,6 @@
             font-size: 0.8em;
             color: #e9dcc0;
         }
-        /* عکس اصلی */
-        .couple-photo {
-            max-width: 100%;
-            border-radius: 12px;
-            margin: 20px 0;
-            border: 3px solid #eaddcf;
-        }
         /* تصویر تایپوگرافی (شعر) */
         .typography-image {
             max-width: 90%;
@@ -104,23 +97,16 @@
             /* اگر شعر تیره است و روی عکس خوانا نیست، خط زیر را فعال کنید تا سفید شود */
             /* filter: brightness(0) invert(1); */
         }
-        /* متن دعوت‌نامه */
-        .invitation-text {
-            font-size: 1.1em;
-            margin: 20px 0;
-            color: #f5ecd8;
-            text-shadow: 0 1px 8px rgba(0,0,0,0.7);
-        }
-        /* تاریخ و مکان */
-        .event-details {
-            font-size: 1.1em;
-            margin: 30px 0;
-            color: #f5ecd8;
-            line-height: 2.2;
-            text-shadow: 0 1px 8px rgba(0,0,0,0.7);
-        }
-        .event-details strong {
-            color: #e3c987;
+        /* تصاویر متن دعوت‌نامه و زمان/مکان */
+        .text-image {
+            max-width: 90%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+            border: none;
+            box-shadow: none;
+            /* اگر نوشته تیره است و روی عکس خوانا نیست، خط زیر را فعال کنید تا سفید شود */
+            /* filter: brightness(0) invert(1); */
         }
         .families {
             font-size: 1.2em;
@@ -234,23 +220,14 @@
         <div><span id="seconds">۰</span><small>ثانیه</small></div>
     </div>
 
-    <!-- عکس اصلی -->
-    <img src="couple.jpg" alt="عکس نرگس و مهراد" class="couple-photo">
-
     <!-- شعر به صورت تصویر تایپوگرافی -->
     <img src="typography.png" alt="شعر عروسی" class="typography-image">
 
-    <!-- متن دعوت‌نامه -->
-    <p class="invitation-text">
-        رونق بهاری ترین ثانیه های زندگی ما باشید تا لطف حضور شما شادیمان را افزون کند.
-    </p>
+    <!-- متن دعوت‌نامه (تصویر) -->
+    <img src="body.png" alt="رونق بهاری ترین ثانیه های زندگی ما باشید تا لطف حضور شما شادیمان را افزون کند" class="text-image">
 
-    <!-- تاریخ و مکان -->
-    <div class="event-details">
-        <p><strong>زمان:</strong> ۳۰ مهر ۱۴۰۵، ساعت ۱۹:۰۰</p>
-        <p><strong>مکان:</strong> تالار پذیرایی داریوش</p>
-        <p><strong>آدرس:</strong> تهرانپارس - انتهای بلوار پروین - بلوار شاهد - نرسیده به خیابان دماوند لاین کند رو</p>
-    </div>
+    <!-- تاریخ، مکان و آدرس (تصویر) -->
+    <img src="time.png" alt="زمان: ۳۰ مهر ۱۴۰۵، ساعت ۱۹:۰۰ - مکان: تالار پذیرایی داریوش - آدرس: تهرانپارس - انتهای بلوار پروین - بلوار شاهد - نرسیده به خیابان دماوند لاین کند رو" class="text-image">
 
     <!-- موسیقی (با لمس صفحه پوشش شروع می‌شود) -->
     <audio id="weddingMusic" controls loop preload="auto">
