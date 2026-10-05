@@ -12,23 +12,31 @@
         /* تنظیمات کلی */
         body {
             font-family: 'Vazirmatn', Tahoma, sans-serif;
-            background-color: #f9f6f0;
             color: #4a4a4a;
             text-align: center;
             margin: 0;
             padding: 20px;
             line-height: 1.8;
             direction: rtl;
+            
+            /* 🖼️ تنظیمات والپیپر */
+            background: url('wallpaper.jpg') no-repeat center center fixed;
+            background-size: cover;
         }
+        
+        /* جعبه سفید شیشه‌ای (نیمه شفاف) */
         .container {
             max-width: 600px;
             margin: 0 auto;
-            background: #ffffff;
+            background: rgba(255, 255, 255, 0.85); /* 85% سفید، 15% شفاف */
+            backdrop-filter: blur(8px); /* افکت شیشه مات */
+            -webkit-backdrop-filter: blur(8px); /* برای سافاری */
             padding: 30px 20px;
             border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border: 1px solid #eaddcf;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 1px solid rgba(234, 221, 207, 0.5);
         }
+
         /* تیتر و اسم‌ها */
         .bismillah-image {
             max-width: 30%;
@@ -56,7 +64,7 @@
             direction: ltr;
         }
         #countdown div {
-            background: #fdfaf6;
+            background: rgba(253, 250, 246, 0.7);
             padding: 10px 15px;
             border-radius: 10px;
             border: 1px solid #eaddcf;
@@ -163,7 +171,11 @@
             bottom: 0;
             left: 0;
             z-index: 999;
-            background: #f9f6f0;
+            
+            /* 🌟 اگر می‌خواهید صفحه پوشش هم والپیپر داشته باشد، خط زیر را از حالت کامنت خارج کنید */
+            /* background: url('wallpaper.jpg') no-repeat center center; background-size: cover; */
+            
+            background: #f9f6f0; /* رنگ پس‌زمینه فعلی */
             display: flex;
             flex-direction: column;
             align-items: center;
