@@ -12,29 +12,32 @@
         /* تنظیمات کلی */
         body {
             font-family: 'Vazirmatn', Tahoma, sans-serif;
-            color: #4a4a4a;
+            color: #f5ecd8;
             text-align: center;
             margin: 0;
             padding: 20px;
             line-height: 1.8;
             direction: rtl;
-            
-            /* 🖼️ تنظیمات والپیپر */
-            background: url('wallpaper.jpg') no-repeat center center fixed;
-            background-size: cover;
+            background: #17130f;
         }
-        
-        /* جعبه سفید شیشه‌ای (نیمه شفاف) */
+
+        /* 🖼️ والپیپر پشت کل صفحه (روی آیفون هم درست کار می‌کند) */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; right: 0; bottom: 0; left: 0;
+            z-index: -1;
+            /* عدد اول و دوم (۰.۴۵ و ۰.۶۵) میزان تیرگی روی عکس است؛ برای روشن‌تر شدن عکس کمتر کنید */
+            background:
+                linear-gradient(rgba(10,8,6,0.45), rgba(10,8,6,0.65)),
+                url('wallpaper.jpg') center / cover no-repeat;
+        }
+
+        /* بدون کادر سفید؛ فقط محتوا */
         .container {
             max-width: 600px;
             margin: 0 auto;
-            background: rgba(255, 255, 255, 0.85); /* 85% سفید، 15% شفاف */
-            backdrop-filter: blur(8px); /* افکت شیشه مات */
-            -webkit-backdrop-filter: blur(8px); /* برای سافاری */
             padding: 30px 20px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            border: 1px solid rgba(234, 221, 207, 0.5);
         }
 
         /* تیتر و اسم‌ها */
@@ -45,12 +48,15 @@
             margin: 0 auto 20px auto;
             border: none;
             box-shadow: none;
+            /* اگر تصویر بسم‌الله رنگ تیره دارد و روی عکس دیده نمی‌شود، خط زیر را فعال کنید تا سفید شود */
+            /* filter: brightness(0) invert(1); */
         }
         h1 {
             font-size: 2.5em;
-            color: #b8860b;
+            color: #e3c987;
             margin: 10px 0 20px 0;
             font-weight: 700;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.6);
         }
         /* تایمر شمارش معکوس */
         #countdown {
@@ -60,15 +66,17 @@
             gap: 15px;
             margin: 30px 0;
             font-weight: 700;
-            color: #b8860b;
+            color: #e3c987;
             direction: ltr;
         }
         #countdown div {
-            background: rgba(253, 250, 246, 0.7);
+            background: rgba(0, 0, 0, 0.35);
             padding: 10px 15px;
             border-radius: 10px;
-            border: 1px solid #eaddcf;
+            border: 1px solid rgba(227, 201, 135, 0.6);
             min-width: 60px;
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
         }
         #countdown span {
             display: block;
@@ -76,7 +84,7 @@
         }
         #countdown small {
             font-size: 0.8em;
-            color: #888;
+            color: #e9dcc0;
         }
         /* عکس اصلی */
         .couple-photo {
@@ -93,28 +101,33 @@
             box-shadow: none;
             margin: 30px auto;
             display: block;
+            /* اگر شعر تیره است و روی عکس خوانا نیست، خط زیر را فعال کنید تا سفید شود */
+            /* filter: brightness(0) invert(1); */
         }
         /* متن دعوت‌نامه */
         .invitation-text {
             font-size: 1.1em;
             margin: 20px 0;
-            color: #555;
+            color: #f5ecd8;
+            text-shadow: 0 1px 8px rgba(0,0,0,0.7);
         }
         /* تاریخ و مکان */
         .event-details {
             font-size: 1.1em;
             margin: 30px 0;
-            color: #555;
+            color: #f5ecd8;
             line-height: 2.2;
+            text-shadow: 0 1px 8px rgba(0,0,0,0.7);
         }
         .event-details strong {
-            color: #b8860b;
+            color: #e3c987;
         }
         .families {
             font-size: 1.2em;
             font-weight: 700;
-            color: #c9a96a;
+            color: #e3c987;
             margin-top: 30px;
+            text-shadow: 0 1px 8px rgba(0,0,0,0.7);
         }
         /* پخش‌کننده موسیقی */
         audio {
@@ -160,7 +173,8 @@
         .footer {
             margin-top: 40px;
             font-size: 0.8em;
-            color: #aaa;
+            color: #d8ccb4;
+            text-shadow: 0 1px 6px rgba(0,0,0,0.7);
         }
 
         /* صفحه پوشش (برای شروع موسیقی با اولین لمس) */
@@ -171,11 +185,7 @@
             bottom: 0;
             left: 0;
             z-index: 999;
-            
-            /* 🌟 اگر می‌خواهید صفحه پوشش هم والپیپر داشته باشد، خط زیر را از حالت کامنت خارج کنید */
-            /* background: url('wallpaper.jpg') no-repeat center center; background-size: cover; */
-            
-            background: #f9f6f0; /* رنگ پس‌زمینه فعلی */
+            background: #f9f6f0;
             display: flex;
             flex-direction: column;
             align-items: center;
