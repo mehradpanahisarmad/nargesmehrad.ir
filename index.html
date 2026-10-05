@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>عروسی نرگس و مهراد</title>
-    
+
     <!-- فونت اصلی (وزیرمتن) -->
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap" rel="stylesheet">
-    
+
     <style>
         /* تنظیمات کلی */
         body {
@@ -31,7 +31,7 @@
         }
         /* تیتر و اسم‌ها */
         .bismillah-image {
-            max-width: 40%;
+            max-width: 30%;
             height: auto;
             display: block;
             margin: 0 auto 20px auto;
@@ -148,21 +148,60 @@
         .google { background-color: #4285F4; }
         .balad { background-color: #0055A4; }
         .neshan { background-color: #00A651; }
-        
+
         .footer {
             margin-top: 40px;
             font-size: 0.8em;
             color: #aaa;
         }
+
+        /* صفحه پوشش (برای شروع موسیقی با اولین لمس) */
+        #cover {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 999;
+            background: #f9f6f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            cursor: pointer;
+            transition: opacity 0.8s ease;
+            -webkit-tap-highlight-color: transparent;
+        }
+        #cover.hide {
+            opacity: 0;
+            pointer-events: none;
+        }
+        #cover h2 {
+            color: #b8860b;
+            font-size: 2.2em;
+            margin: 0;
+            font-weight: 700;
+        }
+        #cover p {
+            color: #888;
+            margin: 0;
+        }
     </style>
 </head>
 <body>
 
+<!-- صفحه پوشش: با لمس آن موسیقی پخش می‌شود و دعوت‌نامه نمایش داده می‌شود -->
+<div id="cover">
+    <h2>نرگس و مهراد</h2>
+    <p>برای مشاهده دعوتنامه لمس کنید</p>
+</div>
+
 <div class="container">
-    
+
     <!-- تصویر بسم الله -->
     <img src="bismillah.png" alt="به نام ایزد مهر آفرین" class="bismillah-image">
-    
+
     <h1>نرگس و مهراد</h1>
 
     <!-- تایمر شمارش معکوس -->
@@ -191,8 +230,8 @@
         <p><strong>آدرس:</strong> تهرانپارس - انتهای بلوار پروین - بلوار شاهد - نرسیده به خیابان دماوند لاین کند رو</p>
     </div>
 
-    <!-- موسیقی با autoplay و loop -->
-    <audio id="weddingMusic" controls autoplay loop>
+    <!-- موسیقی (با لمس صفحه پوشش شروع می‌شود) -->
+    <audio id="weddingMusic" controls loop preload="auto">
         <source src="tango.mp3" type="audio/mpeg">
         مرورگر شما از پخش صدا پشتیبانی نمی‌کند.
     </audio>
@@ -204,7 +243,7 @@
             <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
             گوگل مپ
         </a>
-        
+
         <!-- Balad -->
         <a href="https://balad.ir/location?latitude=35.72682143932375&longitude=51.53416884753732" target="_blank" class="nav-btn balad">
             <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
@@ -226,12 +265,11 @@
 
 </div>
 
-<!-- اسکریپت تایمر شمارش معکوس و پخش خودکار موسیقی -->
 <script>
     // --- بخش اول: تایمر شمارش معکوس ---
     const weddingDate = new Date("2026-10-22T19:00:00+03:30").getTime();
 
-    const timer = setInterval(function() {
+    const timer = setInterval(function () {
         const now = new Date().getTime();
         const distance = weddingDate - now;
 
@@ -252,23 +290,21 @@
         document.getElementById("seconds").innerText = seconds;
     }, 1000);
 
-    // --- بخش دوم: تلاش برای پخش خودکار موسیقی ---
+    // --- بخش دوم: پخش موسیقی با لمس صفحه پوشش ---
     const audio = document.getElementById("weddingMusic");
-    
-    // تلاش اول: پخش فوری
-    audio.play().catch(function(error) {
-        console.log("پخش خودکار توسط مرورگر مسدود شد. در انتظار اولین لمس کاربر...");
-        
-        // تلاش دوم: اگر مرورگر اجازه نداد، با اولین لمس/کلیک کاربر پخش شود
-        const playOnInteraction = function() {
-            audio.play();
-            // حذف شنونده‌ها بعد از اولین پخش
-            document.removeEventListener('click', playOnInteraction);
-            document.removeEventListener('touchstart', playOnInteraction);
-        };
-        
-        document.addEventListener('click', playOnInteraction);
-        document.addEventListener('touchstart', playOnInteraction);
+    const cover = document.getElementById("cover");
+
+    // اگر مرورگر اجازه پخش خودکار بدهد، صفحه پوشش همان لحظه بسته می‌شود
+    audio.play().then(function () {
+        cover.remove();
+    }).catch(function () {
+        // در غیر این صورت منتظر لمس کاربر می‌مانیم
+    });
+
+    cover.addEventListener("click", function () {
+        audio.play().catch(function () {});
+        cover.classList.add("hide");
+        setTimeout(function () { cover.remove(); }, 900);
     });
 </script>
 
