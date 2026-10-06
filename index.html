@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>شما مهمان ویژه جشن عروسی نرگس و مهراد هستید</title>
 
+    <!-- بارگذاری زودهنگام تصویر کاور -->
+    <link rel="preload" as="image" href="cover.jpg">
+
     <!-- فونت اصلی (وزیرمتن) -->
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap" rel="stylesheet">
 
@@ -168,12 +171,8 @@
             bottom: 0;
             left: 0;
             z-index: 999;
-            background: #f9f6f0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
+            /* 🖼️ تصویر کاور: اگر اسم یا فرمت فایل متفاوت است (مثلاً cover.png) همین‌جا تغییر دهید */
+            background: #17130f url('cover.jpg') center / cover no-repeat;
             cursor: pointer;
             transition: opacity 0.8s ease;
             -webkit-tap-highlight-color: transparent;
@@ -182,25 +181,18 @@
             opacity: 0;
             pointer-events: none;
         }
-        #cover h2 {
-            color: #b8860b;
-            font-size: 2.2em;
-            margin: 0;
-            font-weight: 700;
-        }
-        #cover p {
-            color: #888;
-            margin: 0;
+        /* روی کامپیوتر و صفحه‌های افقی، کاور کامل و بدون برش نمایش داده می‌شود */
+        @media (min-aspect-ratio: 1/1) {
+            #cover {
+                background-size: contain;
+            }
         }
     </style>
 </head>
 <body>
 
 <!-- صفحه پوشش: با لمس آن موسیقی پخش می‌شود و دعوت‌نامه نمایش داده می‌شود -->
-<div id="cover">
-    <h2>نرگس و مهراد</h2>
-    <p>برای مشاهده دعوتنامه لمس کنید</p>
-</div>
+<div id="cover" role="button" aria-label="مشاهده دعوتنامه"></div>
 
 <div class="container">
 
@@ -272,7 +264,7 @@
 
         if (distance < 0) {
             clearInterval(timer);
-            document.getElementById("countdown").innerHTML = "<h3>امروز روز عروسی ماست! 🎉</h3>";
+            document.getElementById("countdown").innerHTML = "<h3>امروز روز پیوند ماست! 🎉</h3>";
             return;
         }
 
