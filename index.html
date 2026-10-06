@@ -9,6 +9,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap" rel="stylesheet">
 
     <style>
+        /* 🌟 گرادینت طلایی (برای تغییر رنگ‌ها فقط همین خط را ویرایش کنید) */
+        :root {
+            --gold-gradient: linear-gradient(135deg, #fbefb8 0%, #e6c35c 28%, #b8860b 52%, #f1d77e 78%, #c9a227 100%);
+        }
+
         /* تنظیمات کلی */
         body {
             font-family: 'Vazirmatn', Tahoma, sans-serif;
@@ -53,10 +58,15 @@
         }
         h1 {
             font-size: 2.5em;
-            color: #e3c987;
-            margin: 10px 0 20px 0;
+            width: fit-content;
+            margin: 10px auto 20px auto;
             font-weight: 700;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: #e3c987; /* رنگ جایگزین برای مرورگرهای قدیمی */
+            filter: drop-shadow(0 2px 8px rgba(0,0,0,0.6));
         }
         /* تایمر شمارش معکوس */
         #countdown {
@@ -81,6 +91,11 @@
         #countdown span {
             display: block;
             font-size: 1.5em;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: #e3c987; /* رنگ جایگزین برای مرورگرهای قدیمی */
         }
         #countdown small {
             font-size: 0.8em;
