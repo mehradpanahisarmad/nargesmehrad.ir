@@ -9,11 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap" rel="stylesheet">
 
     <style>
-        /* 🌟 گرادینت طلایی (برای تغییر رنگ‌ها فقط همین خط را ویرایش کنید) */
-        :root {
-            --gold-gradient: linear-gradient(135deg, #fbefb8 0%, #e6c35c 28%, #b8860b 52%, #f1d77e 78%, #c9a227 100%);
-        }
-
         /* تنظیمات کلی */
         body {
             font-family: 'Vazirmatn', Tahoma, sans-serif;
@@ -56,50 +51,42 @@
             /* اگر تصویر بسم‌الله رنگ تیره دارد و روی عکس دیده نمی‌شود، خط زیر را فعال کنید تا سفید شود */
             /* filter: brightness(0) invert(1); */
         }
-        h1 {
-            font-size: 2.5em;
-            width: fit-content;
+        .names-image {
+            max-width: 80%;
+            height: auto;
+            display: block;
             margin: 10px auto 20px auto;
-            font-weight: 700;
-            background: var(--gold-gradient);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            color: #e3c987; /* رنگ جایگزین برای مرورگرهای قدیمی */
-            filter: drop-shadow(0 2px 8px rgba(0,0,0,0.6));
+            border: none;
+            box-shadow: none;
         }
         /* تایمر شمارش معکوس */
         #countdown {
             display: flex;
             flex-direction: row;
             justify-content: center;
-            gap: 15px;
+            gap: 8px;
             margin: 30px 0;
             font-weight: 700;
-            color: #e3c987;
+            color: #ffffff;
             direction: ltr;
         }
         #countdown div {
             background: rgba(0, 0, 0, 0.35);
-            padding: 10px 15px;
+            padding: 8px 8px;
             border-radius: 10px;
             border: 1px solid rgba(227, 201, 135, 0.6);
-            min-width: 60px;
+            min-width: 50px;
             backdrop-filter: blur(4px);
             -webkit-backdrop-filter: blur(4px);
         }
         #countdown span {
             display: block;
             font-size: 1.5em;
-            background: var(--gold-gradient);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            color: #e3c987; /* رنگ جایگزین برای مرورگرهای قدیمی */
+            color: #ffffff;
         }
         #countdown small {
             font-size: 0.8em;
-            color: #e9dcc0;
+            color: #ffffff;
         }
         /* تصویر تایپوگرافی (شعر) */
         .typography-image {
@@ -122,13 +109,6 @@
             box-shadow: none;
             /* اگر نوشته تیره است و روی عکس خوانا نیست، خط زیر را فعال کنید تا سفید شود */
             /* filter: brightness(0) invert(1); */
-        }
-        .families {
-            font-size: 1.2em;
-            font-weight: 700;
-            color: #e3c987;
-            margin-top: 30px;
-            text-shadow: 0 1px 8px rgba(0,0,0,0.7);
         }
         /* پخش‌کننده موسیقی */
         audio {
@@ -171,11 +151,13 @@
         .balad { background-color: #0055A4; }
         .neshan { background-color: #00A651; }
 
-        .footer {
-            margin-top: 40px;
-            font-size: 0.8em;
-            color: #d8ccb4;
-            text-shadow: 0 1px 6px rgba(0,0,0,0.7);
+        .signature-image {
+            max-width: 50%;
+            height: auto;
+            display: block;
+            margin: 40px auto 0 auto;
+            border: none;
+            box-shadow: none;
         }
 
         /* صفحه پوشش (برای شروع موسیقی با اولین لمس) */
@@ -225,7 +207,7 @@
     <!-- تصویر بسم الله -->
     <img src="bismillah.png" alt="به نام ایزد مهر آفرین" class="bismillah-image">
 
-    <h1>نرگس و مهراد</h1>
+    <img src="names.png" alt="نرگس و مهراد" class="names-image">
 
     <!-- تایمر شمارش معکوس -->
     <div id="countdown">
@@ -271,11 +253,7 @@
         </a>
     </div>
 
-    <div class="families">پناهی - نوروزی</div>
-
-    <div class="footer">
-        با عشق، نرگس و مهراد
-    </div>
+    <img src="signature.png" alt="با عشق، نرگس و مهراد" class="signature-image">
 
 </div>
 
