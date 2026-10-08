@@ -158,8 +158,28 @@
         .balad { background-color: #0055A4; }
         .neshan { background-color: #00A651; }
 
+        /* دکمه آپلود عکس‌ها */
+        .upload-link {
+            display: block;
+            width: fit-content;
+            max-width: 80%;
+            margin: 30px auto 10px;
+            -webkit-tap-highlight-color: transparent;
+            transition: transform 0.2s;
+        }
+        .upload-link:active {
+            transform: scale(0.96);
+        }
+        .upload-image {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            border: none;
+            box-shadow: none;
+        }
+
         .signature-image {
-            max-width: 50%;
+            max-width: 65%;
             height: auto;
             display: block;
             margin: 40px auto 0 auto;
@@ -222,12 +242,6 @@
     <!-- تاریخ، مکان و آدرس (تصویر) -->
     <img src="time.png" alt="زمان: ۳۰ مهر ۱۴۰۵، ساعت ۱۹:۰۰ - مکان: تالار پذیرایی داریوش - آدرس: تهرانپارس - انتهای بلوار پروین - بلوار شاهد - نرسیده به خیابان دماوند لاین کند رو" class="text-image">
 
-    <!-- موسیقی (با لمس صفحه پوشش شروع می‌شود) -->
-    <audio id="weddingMusic" controls loop preload="auto">
-        <source src="tango.mp3" type="audio/mpeg">
-        مرورگر شما از پخش صدا پشتیبانی نمی‌کند.
-    </audio>
-
     <!-- دکمه‌های ناوبری -->
     <div class="navigation">
         <!-- Google Maps -->
@@ -248,6 +262,17 @@
             نشان
         </a>
     </div>
+
+    <!-- دکمه آپلود عکس‌ها (لینک Dropbox) -->
+    <a href="https://www.dropbox.com/request/v817sda4potadjwddwzl" target="_blank" rel="noopener" class="upload-link">
+        <img src="upload.png" alt="آپلود عکس‌ها" class="upload-image">
+    </a>
+
+    <!-- موسیقی (با لمس صفحه پوشش شروع می‌شود) -->
+    <audio id="weddingMusic" controls loop preload="auto">
+        <source src="tango.mp3" type="audio/mpeg">
+        مرورگر شما از پخش صدا پشتیبانی نمی‌کند.
+    </audio>
 
     <img src="signature.png" alt="با عشق، نرگس و مهراد" class="signature-image">
 
