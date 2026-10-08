@@ -158,24 +158,36 @@
         .balad { background-color: #0055A4; }
         .neshan { background-color: #00A651; }
 
-        /* دکمه آپلود عکس‌ها */
-        .upload-link {
+        /* تصویر آپلود (بدون لینک) */
+        .upload-image {
+            display: block;
+            max-width: 80%;
+            height: auto;
+            margin: 30px auto 0;
+            border: none;
+            box-shadow: none;
+        }
+        /* دکمه آپلود: طلایی تیره، متن سفید با خط دور مشکی نازک (روی متن، نه روی دکمه) */
+        .upload-btn {
             display: block;
             width: fit-content;
-            max-width: 80%;
-            margin: 30px auto 10px;
+            margin: 18px auto 10px;
+            padding: 12px 48px;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #8a6a1f 0%, #b8860b 50%, #7a5a14 100%);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+            color: #ffffff;
+            font-size: 1.2em;
+            font-weight: 700;
+            text-decoration: none;
+            -webkit-text-stroke: 0.6px #000000; /* ضخامت خط دور متن */
+            paint-order: stroke fill;
             -webkit-tap-highlight-color: transparent;
             transition: transform 0.2s;
         }
-        .upload-link:active {
+        .upload-btn:active {
             transform: scale(0.96);
-        }
-        .upload-image {
-            display: block;
-            max-width: 100%;
-            height: auto;
-            border: none;
-            box-shadow: none;
         }
 
         .signature-image {
@@ -263,10 +275,11 @@
         </a>
     </div>
 
+    <!-- تصویر آپلود (فقط تصویر، بدون لینک) -->
+    <img src="upload.png" alt="آپلود عکس‌ها" class="upload-image">
+
     <!-- دکمه آپلود عکس‌ها (لینک Dropbox) -->
-    <a href="https://www.dropbox.com/request/v817sda4potadjwddwzl" target="_blank" rel="noopener" class="upload-link">
-        <img src="upload.png" alt="آپلود عکس‌ها" class="upload-image">
-    </a>
+    <a href="https://www.dropbox.com/request/v817sda4potadjwddwzl" target="_blank" rel="noopener" class="upload-btn">upload</a>
 
     <!-- موسیقی (با لمس صفحه پوشش شروع می‌شود) -->
     <audio id="weddingMusic" controls loop preload="auto">
